@@ -2,7 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+import {storyblokInit, apiPlugin} from '@storyblok/react'
+
+import Feature from "./components/Feature";
+import Grid from "./components/Grid";
+import Page from "./components/Page";
+import Teaser from "./components/Teaser";
+import Hero from "./components/Hero";
+import AllArticles from "./components/AllArticles";
+import Article from "./components/Article";
+import PopularArticles from "./components/PopularArticles";
+
+const components = {
+  feature: Feature,
+  grid: Grid,
+  teaser: Teaser,
+  page: Page,
+  hero: Hero,
+  "all-articles": AllArticles,
+  article: Article,
+  "popular-articles": PopularArticles,
+};
+
+storyblokInit({
+  accessToken: 'WXPGqyuzpZLrYWFMR2gm3Att',
+  use: [apiPlugin],
+  components
+})
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +39,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
